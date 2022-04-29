@@ -1,5 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { TransactionsContext } from '../../TransactionsContext';
 import { api } from '../../services/api';
+
 import { Container } from './styles';
 
 interface Transaction {
@@ -12,6 +14,7 @@ interface Transaction {
 }
 
 export function TransactionsTable() {
+  const data = useContext(TransactionsContext);
   const [transactions, setTransactions] = useState<Transaction[]>([]);
 
   useEffect(() => {
@@ -37,6 +40,7 @@ export function TransactionsTable() {
             <tr key={transaction.id}>
               <td>{transaction.title}</td>
               <td className={transaction.type}>
+                {transaction.type === 'withdraw' && '- '}
                 {new Intl.NumberFormat('pt-BR', {
                   style: 'currency',
                   currency: 'BRL'
