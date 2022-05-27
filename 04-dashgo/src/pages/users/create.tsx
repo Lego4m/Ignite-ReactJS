@@ -42,7 +42,7 @@ export default function CreateUser() {
               width='100%' 
             >
               <Input name='password' type='password' label='Senha' />
-              <Input name='password_confirmation' type='password' label='Confirmação da senha'   />
+              <Input name='password_confirmation' type='password' label='Confirmação da senha' />
             </SimpleGrid>
           </VStack>
 
