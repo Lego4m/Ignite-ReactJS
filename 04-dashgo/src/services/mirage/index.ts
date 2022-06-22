@@ -53,6 +53,7 @@ export function makeServer() {
         ) 
       });
 
+      this.get('/users/:id');
       this.post('/users');
 
       this.namespace = '';  // não conflitar com as API routes do Next
